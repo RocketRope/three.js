@@ -9776,6 +9776,8 @@ THREE.Geometry.prototype = {
 		this.verticesNeedUpdate = true;
 		this.normalsNeedUpdate = true;
 
+		return this;
+
 	},
 
 	rotateX: function () {
@@ -11333,6 +11335,8 @@ THREE.BufferGeometry.prototype = {
 			this.computeBoundingSphere();
 
 		}
+
+		return this;
 
 	},
 
@@ -22183,6 +22187,23 @@ THREE.LineSegments = function ( geometry, material ) {
 THREE.LineSegments.prototype = Object.create( THREE.Line.prototype );
 THREE.LineSegments.prototype.constructor = THREE.LineSegments;
 
+// File:src/objects/LineLoop.js
+
+/**
+ * @author
+ */
+
+THREE.LineLoop = function ( geometry, material ) {
+
+	THREE.Line.call( this, geometry, material );
+
+	this.type = 'LineLoop';
+
+};
+
+THREE.LineLoop.prototype = Object.create( THREE.Line.prototype );
+THREE.LineLoop.prototype.constructor = THREE.LineLoop;
+
 // File:src/objects/Mesh.js
 
 /**
@@ -25871,6 +25892,10 @@ THREE.WebGLRenderer = function ( parameters ) {
 			if ( object instanceof THREE.LineSegments ) {
 
 				renderer.setMode( _gl.LINES );
+
+			} else if (object instanceof THREE.LineLoop ) {
+
+				renderer.setMode( _gl.LINE_LOOP );
 
 			} else {
 

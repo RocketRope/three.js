@@ -106,6 +106,7 @@
 	"src/objects/Points.js",
 	"src/objects/Line.js",
 	"src/objects/LineSegments.js",
+	"src/objects/LineLoop.js",
 	"src/objects/Mesh.js",
 	"src/objects/Bone.js",
 	"src/objects/Skeleton.js",

@@ -883,6 +883,10 @@ THREE.WebGLRenderer = function ( parameters ) {
 
 				renderer.setMode( _gl.LINES );
 
+			} else if (object instanceof THREE.LineLoop ) {
+
+				renderer.setMode( _gl.LINE_LOOP );
+
 			} else {
 
 				renderer.setMode( _gl.LINE_STRIP );
